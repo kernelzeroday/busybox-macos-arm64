@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+echo "read the readme please, but i will do what you expect this should do anyways for you..."
+
+
+cp -v configs/osx_arm64_defconfig .config
+
+
+echo "now run make clean for no real reason other than to make you feel good about yourself"
+
+
+make clean
+
+
+
+echo "lets just run grep for the hell of it too, because why not"
+
+
+
+grep CONFIG .config
+
+
+echo "\n\n\n\n----====----====----====----"
+echo "WARNING WARNING WARNING WARNING"
+
+echo "Deleting system32... just kidding, you should be good to go, but you should probably read the readme, and then run make -j44 if you're on a decent machine."
+
+echo "----====----====----====----"
+
+echo "\n\n\n\n"
+
+echo "run make now and inspect busybox_unstripped to be sure you got a nice little binary"
+
+echo "\n\n\n\n"
+
+echo "by the way, no clue how old this port is, i may update it, i might not, feel free to make a pr"

@@ -270,7 +270,7 @@ endif # builtin-target
 #
 ifdef lib-target
 quiet_cmd_link_l_target = AR      $@
-cmd_link_l_target = rm -f $@ $(if $(strip $(lib-y)),;$(AR) $(EXTRA_ARFLAGS) -r -c -s $@ $(lib-y),)
+cmd_link_l_target = rm -f $@ $(if $(strip $(lib-y)),;$(AR) $(ARFLAGS) -static -o $@ $(lib-y),)
 
 $(lib-target): $(lib-y) FORCE
 	$(call if_changed,link_l_target)

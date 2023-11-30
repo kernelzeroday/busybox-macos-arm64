@@ -289,8 +289,8 @@ MAKEFLAGS += -rR
 # Make variables (CC, etc...)
 
 AS		= $(CROSS_COMPILE)as
-CC		= $(CROSS_COMPILE)gcc-13 -v
-LD		= $(CROSS_COMPILE)gcc-13 -v
+CC		= $(CROSS_COMPILE)gcc -v
+LD		= $(CROSS_COMPILE)gcc -v
 CPP		= $(CC) -E
 AR		= $(CROSS_COMPILE)libtool
 NM		= $(CROSS_COMPILE)nm
@@ -300,7 +300,7 @@ OBJDUMP		= $(CROSS_COMPILE)objdump
 AWK		= gawk
 GENKSYMS	= scripts/genksyms/genksyms
 DEPMOD		= /sbin/depmod
-KALLSYMS	= scripts/kallsyms
+KALLSYMS	= scripts/kallsymsm
 PERL		= perl
 CHECK		= sparse
 
