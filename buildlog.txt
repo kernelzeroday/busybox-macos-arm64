@@ -1,0 +1,34 @@
+scripts/kconfig/conf -s Config.in
+#
+# using defaults found in .config
+#
+  SPLIT   include/autoconf.h -> include/config/*
+  HOSTCC  applets/usage
+  HOSTCC  applets/applet_tables
+  GEN     include/bbconfigopts.h
+  GEN     include/applet_tables.h
+  GEN     include/usage_compressed.h
+  HOSTCC  applets/usage_pod
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     busybox.1
+  DOC     BusyBox.html
+  CC      miscutils/bbconfig.o
+  CC      libbb/appletlib.o
+  AR      miscutils/lib.a
+  AR      libbb/lib.a
+  LINK    busybox_unstripped
+Trying libraries: 
+Failed: 
+Output of:
+clang -v -Wshadow -Wwrite-strings -Wundef -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wdeclaration-after-statement -Wold-style-definition -fno-builtin-strlen -finline-limit=0 -fomit-frame-pointer -ffunction-sections -fdata-sections -funsigned-char -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -Os -o busybox_unstripped applets/built-in.o archival/lib.a archival/libarchive/lib.a console-tools/lib.a coreutils/lib.a coreutils/libcoreutils/lib.a debianutils/lib.a editors/lib.a findutils/lib.a init/lib.a libbb/lib.a libpwdgrp/lib.a loginutils/lib.a mailutils/lib.a miscutils/lib.a networking/lib.a procps/lib.a runit/lib.a shell/lib.a sysklogd/lib.a util-linux/lib.a archival/built-in.o archival/libarchive/built-in.o console-tools/built-in.o coreutils/built-in.o coreutils/libcoreutils/built-in.o debianutils/built-in.o editors/built-in.o findutils/built-in.o init/built-in.o libbb/built-in.o libpwdgrp/built-in.o loginutils/built-in.o mailutils/built-in.o miscutils/built-in.o networking/built-in.o procps/built-in.o runit/built-in.o shell/built-in.o sysklogd/built-in.o util-linux/built-in.o
+==========
+Apple clang version 15.0.0 (clang-1500.0.40.1)
+Target: arm64-apple-darwin23.1.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 14.0.0 14.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -Os -o busybox_unstripped -L/usr/local/lib applets/built-in.o archival/lib.a archival/libarchive/lib.a console-tools/lib.a coreutils/lib.a coreutils/libcoreutils/lib.a debianutils/lib.a editors/lib.a findutils/lib.a init/lib.a libbb/lib.a libpwdgrp/lib.a loginutils/lib.a mailutils/lib.a miscutils/lib.a networking/lib.a procps/lib.a runit/lib.a shell/lib.a sysklogd/lib.a util-linux/lib.a archival/built-in.o archival/libarchive/built-in.o console-tools/built-in.o coreutils/built-in.o coreutils/libcoreutils/built-in.o debianutils/built-in.o editors/built-in.o findutils/built-in.o init/built-in.o libbb/built-in.o libpwdgrp/built-in.o loginutils/built-in.o mailutils/built-in.o miscutils/built-in.o networking/built-in.o procps/built-in.o runit/built-in.o shell/built-in.o sysklogd/built-in.o util-linux/built-in.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/lib/darwin/libclang_rt.osx.a
+ld: multiple errors: archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/archival/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/console-tools/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/debianutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/findutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/libbb/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/editors/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/coreutils/libcoreutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/archival/libarchive/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/loginutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/libpwdgrp/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/miscutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/init/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/coreutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/mailutils/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/procps/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/networking/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/sysklogd/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/shell/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/util-linux/lib.a'; archive member '/' not a mach-o file in '/Users/kod/code/busybox-osx/runit/lib.a'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
